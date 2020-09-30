@@ -11,9 +11,7 @@ request({ url, json: true}, (error, {body}) => {
         callback('Unable to find location')
     } else {
         callback(undefined, {
-            weatherDescriptions:body.current.weather_descriptions[0],
-            temperature: body.current.temperature,
-            feelsLike: body.current.feelslike
+            dataForecast:`Current weather is ${body.current.weather_descriptions[0]}. It is currently ${body.current.temperature} degress and feels like ${body.current.feelslike} degress out. Humidity is ${body.current.humidity}%.`
         })
     }
 })
